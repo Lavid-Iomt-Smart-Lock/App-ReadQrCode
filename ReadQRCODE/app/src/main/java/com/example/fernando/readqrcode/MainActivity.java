@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference myRef = database.getReference();
 
     final DatabaseReference accessStatus = myRef.child("access").child("status");
-
+    final DatabaseReference accessHardware = myRef.child("access").child("hardware");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         if (result != null) {
             if (result.getContents() != null) {
                 alert(result.getContents());
+                accessHardware.setValue("true");
             }else {
                 alert("Stop Scan");
             }
